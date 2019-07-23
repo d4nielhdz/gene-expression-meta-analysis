@@ -1,0 +1,1 @@
+https://trace.ncbi.nlm.nih.gov/Traces/sra/?run=SRR504368,d1_f1_p2p1_1.sra

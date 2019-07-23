@@ -1,7 +1,10 @@
-#PBS -N kallisto_quan
-#PBS -l nodes=1:ppn=16,mem=16gb,vmem=32gb,walltime=250:00:00
-#PBS -q default
-#PBS -V
+    #PBS -N dataset_download
+    #PBS -l nodes=1:ppn=16,mem=16gb,vmem=32gb,walltime=250:00:00
+    #PBS -q default
+    #PBS -V
+
+    cd $PBS_O_WORKDIR
+
 
 i=1
 
@@ -22,6 +25,7 @@ do
         filename=$(echo $line | awk -F, '{print $2}')
         # downloading
         wget $url -O $filename
+        echo "Downloading $filename from $url"
     done
     i=$(( i+1 ))
     cd ..
