@@ -5,9 +5,7 @@
 
 cd $PBS_O_WORKDIR
 
-
 module load FastQC/0.11.2
-
 
 i=1
 
