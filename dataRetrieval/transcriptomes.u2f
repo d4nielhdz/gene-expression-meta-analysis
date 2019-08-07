@@ -1,0 +1,6 @@
+https://datadryad.org/bitstream/handle/10255/dryad.64342/AlamoAP13_annotated_transcriptome.fasta.gz?sequence=1,d1_transcriptome.fa.gz
+ftp://ftp.ensemblgenomes.org/pub/plants/release-44/fasta/zea_mays/cdna/Zea_mays.B73_RefGen_v4.cdna.all.fa.gz,d2_transcriptome.fa.gz
+ftp://ftp.ensemblgenomes.org/pub/plants/release-44/fasta/oryza_sativa/cdna/Oryza_sativa.IRGSP-1.0.cdna.all.fa.gz,d3_transcriptome.fa.gz
+ftp://ftp.ensemblgenomes.org/pub/plants/release-44/fasta/arabidopsis_thaliana/cdna/Arabidopsis_thaliana.TAIR10.cdna.all.fa.gz,d4_transcriptome.fa.gz
+https://sunflowergenome.org/transcriptome-data/assets/data/transcriptome/HA412_trinity.fa.bz2,d5_transcriptome.fa.bz2
+ftp://ftp.ensemblgenomes.org/pub/plants/release-44/fasta/zea_mays/cdna/Zea_mays.B73_RefGen_v4.cdna.all.fa.gz,d6_transcriptome.fa.gz

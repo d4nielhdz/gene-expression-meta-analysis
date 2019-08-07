@@ -1,16 +1,19 @@
-    #PBS -N dataset_download
-    #PBS -l nodes=1:ppn=16,mem=16gb,vmem=32gb,walltime=250:00:00
-    #PBS -q default
-    #PBS -V
+#PBS -N get_datasets
+#PBS -l nodes=1:ppn=16,mem=16gb,vmem=32gb,walltime=550:00:00
+#PBS -q default
+#PBS -V
 
-    cd $PBS_O_WORKDIR
+cd $PBS_O_WORKDIR
 
+module load sratoolkit/2.9.6
 
 i=1
+# define n to be the number of datasets + 1
+n=8 
 
-until [ $i == 6 ]
+until [ $i == $n ]
 do
-    # create 5 dataset directories to download the files in
+    # create n dataset directories to download the files in
     mkdir dataset$i
     cd dataset$i
     # iterarting through each .u2f (url to filename) file
@@ -25,7 +28,10 @@ do
         filename=$(echo $line | awk -F, '{print $2}')
         # downloading
         wget $url -O $filename
-        echo "Downloading $filename from $url"
+        # converting to fastq
+        fasterq-dump $filename -e 12 -t /scratch
+        # gzipping
+        gzip $filename
     done
     i=$(( i+1 ))
     cd ..
