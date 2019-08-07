@@ -9,12 +9,12 @@ module load kallisto/0.44.0
 
 # building indices
 # using 31 kmer size
-find transcriptomes.u2f | echo  parallel --max-args 1 -j+8 -I%\
-kallisto index -i % %.idx
+find d*_transcriptome.fa* | parallel --max-args 1 -j+8 -I%\
+echo kallisto index -i % %.idx
 
 i=1
 # define n to be the number of datasets + 1
-n=8
+n=7
 # moving index files to their respective dataset directories
 until [ $i == $n ]
   do
@@ -24,7 +24,7 @@ until [ $i == $n ]
     continue
   fi
 # wildcard used because file extension may not be the same for all transcriptomes
-  echo mv d${i}_transcriptome*.idx dataset${i}
+  echo mv d${i}_transcriptome*.idx dataset${i}/.
   i=$(( i+1 ))
 done
 
@@ -57,7 +57,3 @@ until [ $i == $n ]
   cd ..
 
 done
-
-
-
-
