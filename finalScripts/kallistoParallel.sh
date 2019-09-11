@@ -11,8 +11,8 @@ module load kallisto/0.44.0
 # using 31 kmer size
 # building indices
 # using 31 kmer size
-find d*_transcriptome.fa* | parallel --max-args 1 -j+8 -I%\
- kallisto index -i %.idx %
+#find d*_transcriptome.fa* | parallel --max-args 1 -j+8 -I%\
+ #kallisto index -i %.idx %
 
 
 i=1
@@ -21,6 +21,11 @@ n=6
 # moving index files to their respective dataset directories
 until [ $i == $n ]
   do
+  if [ $i == 6 ] || [ $i == 5 ]
+    then
+    i=$(( i+1 ))
+    continue
+  fi
 # wildcard used because file extension may not be the same for all transcriptomes
   mv d${i}_transcriptome*.idx dataset${i}/.
   i=$(( i+1 ))
@@ -31,22 +36,24 @@ i=1
 until [ $i == $n ]
   do
 
+  if [ $i == 6 ]|| [ $i == 5 ]
+    then
+    i=$(( i+1 ))
+    continue
+  fi
+
   cd dataset$i
   indexFile=$(ls -1 d${i}_transcriptome*.idx)
   # checking if sequences are single end
   if [ `ls -1 *.sra.fastq.gz | wc -l ` -gt 0 ]
     then
-    for file in $(find *.sra.fastq.gz)
-      do
-      kallisto quant  -i $indexFile -o $file_out --single\
-      -- -l 200 -t 16 -b 30 $file
-    done
+    find d$i_*.fastq.gz_t | parallel --max-args 1 -j+8 -I%\
+    kallisto quant  -i $indexFile -o %_out --single\
+    -- -l 200 -t 2 -b 30 %
   else
-    for file in $(find d$i_*_1.fastq.gz_t | sed 's/.sra_1.fastq.gz_t//')
-      do
-      kallisto quant -i $indexFile\
-      -o $file_out -t 16 -b 30 $file.sra_1.fastq.gz_t $file.sra_2.fastq.gz_t
-    done
+    find d$i_*_1.fastq.gz_t | sed 's/.sra_1.fastq.gz_t//' | parallel\
+    --max-args 1 -I% -j+8 kallisto quant -i $indexFile\
+    -o %_out -t 2 -b 30 %.sra_1.fastq.gz_t %.sra_2.fastq.gz_t
   fi
 
   i=$(( i+1 ))

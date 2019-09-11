@@ -27,12 +27,17 @@ do
         # getting filename
         filename=$(echo $line | awk -F, '{print $2}')
         # downloading
-        wget $url -O $filename
+        wget $url -O $filename --tries=75
         # converting to fastq
         fasterq-dump $filename -e 12 -t /scratch
-        # gzipping
-        gzip $filename
     done
+
+    for file in $(find *.fastq)
+        # gzipping
+        do
+        gzip $file
+    done
+
     i=$(( i+1 ))
     cd ..
 done

@@ -14,11 +14,12 @@ for line in $(cat transcriptomes.u2f)
   # getting filename
   filename=$(echo $line | awk -F, '{print $2}')
   # downloading
-  echo wget $url -O $filename
+  wget $url -O $filename
   # checking if file needs to be unzipped
   if [ -f d${i}_transcriptome.*bz2 ]
     then
     echo bunzip2 -d $filename
   fi
+
   i=$(( i+1 ))
 done

@@ -1,0 +1,4 @@
+https://sra-download.ncbi.nlm.nih.gov/traces/sra32/SRR/002052/SRR2102244,d5_f1_p1p2_1.sra
+https://sra-download.ncbi.nlm.nih.gov/traces/sra32/SRR/002052/SRR2102243,d5_f1_p3p4_1.sra
+https://sra-download.ncbi.nlm.nih.gov/traces/sra32/SRR/002052/SRR2102242,d5_f1_p5p6_1.sra
+https://sra-download.ncbi.nlm.nih.gov/traces/sra32/SRR/002052/SRR2102241,d5_f1_p7p8_1.sra

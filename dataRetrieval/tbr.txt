@@ -1,0 +1,13 @@
+d6_p2_11.sra
+d6_p2_12.sra
+d6_p2_13.sra
+d6_p2_8.sra
+d6_p2_15.sra
+d6_p2_23.sra
+d6_p2_24.sra
+d6_p1_16.sra
+d6_f1_p1p2_3.sra
+d6_f1_p1p2_7.sra
+d6_f1_p1p2_20.sra
+d6_f1_p1p2_21.sra
+d6_p2_3.sra
