@@ -1,0 +1,12 @@
+dataset3/d3_f1_p1p2_1_out
+dataset3/d3_f1_p1p2_2_out
+dataset3/d3_f1_p1p2_3_out
+dataset3/d3_f1_p1p2_4_out
+dataset3/d3_f1_p1p2_5_out
+dataset3/d3_f1_p1p2_6_out
+dataset3/d3_f1_p1p2_7_out
+dataset3/d3_f1_p1p2_8_out
+dataset3/d3_p1_1_out
+dataset3/d3_p1_2_out
+dataset3/d3_p2_1_out
+dataset3/d3_p2_2_out

@@ -1,4 +1,0 @@
-d5_f1_p1p2_1.sra
-d5_f1_p3p4_1.sra
-d5_f1_p5p6_1.sra
-d5_f1_p7p8_1.sra

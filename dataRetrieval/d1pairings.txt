@@ -1,0 +1,4 @@
+dataset1/d1_f1_p1p2_1.sra.fastq.gz_out
+dataset1/d1_f1_p2p1_1.sra.fastq.gz_out
+dataset1/d1_p1_1.sra.fastq.gz_out
+dataset1/d1_p2_1.sra.fastq.gz_out
