@@ -15,9 +15,9 @@ find d*_transcriptome.fa* | parallel --max-args 1 -j+8 -I%\
  kallisto index -i %.idx %
 
 
-i=1
+i=6
 # define n to be the number of datasets + 1
-n=6
+n=7
 # moving index files to their respective dataset directories
 until [ $i == $n ]
   do
@@ -26,7 +26,7 @@ until [ $i == $n ]
   i=$(( i+1 ))
 done
 
-i=1
+i=6
 # kallisto quant
 until [ $i == $n ]
   do
@@ -39,13 +39,15 @@ until [ $i == $n ]
     for file in $(find *.sra.fastq.gz)
       do
       kallisto quant  -i $indexFile -o $file_out --single\
-      -- -l 200 -t 16 -b 30 $file
+      -- -l 200 -t 8 -b 30 $file
     done
   else
     for file in $(find d$i_*_1.fastq.gz_t | sed 's/.sra_1.fastq.gz_t//')
       do
-      kallisto quant -i $indexFile\
-      -o $file_out -t 16 -b 30 $file.sra_1.fastq.gz_t $file.sra_2.fastq.gz_t
+      kallisto quant\
+      -i $indexFile\
+      -o ${file}_out -t 8 -b 30\
+      $file.sra_1.fastq.gz_t $file.sra_2.fastq.gz_t
     done
   fi
 
